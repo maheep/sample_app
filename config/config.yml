@@ -1,0 +1,11 @@
+production: &defaults
+  s3_creds:
+    :secret_access_key: xvgEnS1F0TPUrolwe1Zdc8Gngs68usyqeR4AsPew
+    :access_key_id: AKIAIBB4WYCONPXF7MKQ
+  s3_bucket: team-maheep
+development:
+  <<: *defaults
+staging:
+  <<: *defaults
+test:
+  <<: *defaults

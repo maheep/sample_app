@@ -1,7 +1,11 @@
+<%debugger%>
 <h1>Listing blogs</h1>
+<
 <table align='left'>
 <tr>
-    <td><%= "right" %></td>
+    <td>
+    	<%= image_tag current_user.photo.file? ? current_user.photo.url : "http://placehold.it/955x955" %>
+    </td>
 </tr>
 
 </table>
