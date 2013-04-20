@@ -15,8 +15,9 @@
 		    <td><%= blog.discription %></td>
 		  </tr>
 		  <tr>
-		    <td><%= link_to 'Like', blog %></td>
-		    <td><%= link_to 'Dislike', blog %></td>
+		    <td><%= link_to("Like it", blog_add_vote_path(blog, type: "like"), method: "get") %></td>
+    <td><%= link_to("dislike it", blog_add_vote_path(blog, type: "unlike"), method: "get") %></td>
+	 <td>Like Count(<%=blog.reputation_for(:votes).to_i%>)</td>
 		  </tr>
 		<% end %>
 		</table>
@@ -26,6 +27,7 @@
 		<tr>	
     		<td><%= link_to recent_blog.title, recent_blog %></td>
 		</tr>
+
 	<% end %>
 	</table>
 <%= link_to 'New Blog', new_blog_path %>

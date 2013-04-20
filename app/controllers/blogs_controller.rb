@@ -80,4 +80,16 @@ class BlogsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def add_vote
+    @blog = Blog.find(params[:blog_id])
+    unless @blog.evaluators_for(:votes).include? current_user
+    if params[type]=='like'
+      @blog.add_or_update_evaluation(:votes, 1, current_user)
+    else
+      @blog.delete_evaluation(:votes, -1 , current_user)
+    end
+  end
+  redirect_to @blog
+end
 end

@@ -20,7 +20,10 @@ TeamApp::Application.routes.draw do
   resources :comments
 
 
-  resources :blogs
+  resources :blogs do
+      get :add_vote
+  end
+  
 
 
   # The priority is based upon order of creation:
