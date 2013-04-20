@@ -2,8 +2,8 @@ class BlogsController < ApplicationController
   # GET /blogs
   # GET /blogs.json
   def index
-    @blogs = Blog.all
-
+    @blogs = Blog.paginate(:page => params[:page], :per_page => 5)
+    @recent_blogs = Blog.find(:all, :limit => 10, :order => "updated_at DESC")
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @blogs }

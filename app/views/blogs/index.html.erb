@@ -1,49 +1,35 @@
 <%debugger%>
 <h1>Listing blogs</h1>
-<
-<table align='left'>
-<tr>
-    <td>
-    	<%= image_tag current_user.photo.file? ? current_user.photo.url : "http://placehold.it/955x955" %>
-    </td>
-</tr>
-
-</table>
-<table align='center'>
-  <tr>
-    <!--<th>Title</th>-->
-    <!--<th>Discription</th> -->
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @blogs.each do |blog| %>
-  <tr>
-    <td><%= blog.title %></td>
-  </tr>
-  <tr>
-    <td><%= blog.discription %></td>
-    <td><%= link_to 'Show', blog %></td>
-    <td><%= link_to 'Edit', edit_blog_path(blog) %></td>
-    <td><%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-  <tr>
-    <td><%= link_to 'Like', blog %></td>
-    <td><%= link_to 'Dislike', blog %></td>
-  </tr>
-<% end %>
-</table>
-
-<table align='right'>
-<tr>
-    <% @blogs.each do |blog| %>
-  		<tr>
-    		<td><%= blog.title %></td>
-  		</tr>
+		 <%= image_tag current_user.photo.file? ? current_user.photo.url(:avatar) : "http://placehold.it/955x955" %> </td>
+			<table>
+		    <!--<th>Title</th>-->
+		    <!--<th>Discription</th> -->
+		    <th></th>
+		    <th></th>
+		    <th></th>
+		  </tr>
+		<% @blogs.each do |blog| %>
+		  <tr>
+		    <td><%= blog.title %></td>
+		  </tr>
+		  <tr>
+		    <td><%= blog.discription %></td>
+		    <td><%= link_to 'Show', blog %></td>
+		    <td><%= link_to 'Edit', edit_blog_path(blog) %></td>
+		    <td><%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		  </tr>
+		  <tr>
+		    <td><%= link_to 'Like', blog %></td>
+		    <td><%= link_to 'Dislike', blog %></td>
+		  </tr>
+		<% end %>
+		</table>
+	<table>
+		<%= will_paginate @blogs %>
+    <% @recent_blogs.each do |recent_blog| %>
+		<tr>	
+    		<td><%= recent_blog.title %></td>
+		</tr>
 	<% end %>
-  <tr>
-</tr>
-</table>
-
+	</table>
 <%#= link_to 'New Blog', new_blog_path %>

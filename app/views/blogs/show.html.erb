@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
-
+<p>
+<%= image_tag current_user.photo.file? ? current_user.photo.url(:avatar) : "http://placehold.it/955x955" %>
+</p>
 <p>
   <b>Title:</b>
   <%= @blog.title %>

@@ -39,6 +39,8 @@ gem 'devise'
 # gem 'debugger'
 
 gem 'cancan'
- 
+
+# For Pagination 
+gem 'will_paginate', '~> 3.0'
  # To use papper clip
  gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
