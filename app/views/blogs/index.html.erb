@@ -1,9 +1,14 @@
 <h1>Listing blogs</h1>
+<table align='left'>
+<tr>
+    <td><%= "right" %></td>
+</tr>
 
-<table>
+</table>
+<table align='center'>
   <tr>
-    <th>Title</th>
-    <th>Discription</th>
+    <!--<th>Title</th>-->
+    <!--<th>Discription</th> -->
     <th></th>
     <th></th>
     <th></th>
@@ -12,14 +17,29 @@
 <% @blogs.each do |blog| %>
   <tr>
     <td><%= blog.title %></td>
+  </tr>
+  <tr>
     <td><%= blog.discription %></td>
     <td><%= link_to 'Show', blog %></td>
     <td><%= link_to 'Edit', edit_blog_path(blog) %></td>
     <td><%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
+  <tr>
+    <td><%= link_to 'Like', blog %></td>
+    <td><%= link_to 'Dislike', blog %></td>
+  </tr>
 <% end %>
 </table>
 
-<br />
+<table align='right'>
+<tr>
+    <% @blogs.each do |blog| %>
+  		<tr>
+    		<td><%= blog.title %></td>
+  		</tr>
+	<% end %>
+  <tr>
+</tr>
+</table>
 
-<%= link_to 'New Blog', new_blog_path %>
+<%#= link_to 'New Blog', new_blog_path %>
