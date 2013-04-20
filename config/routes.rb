@@ -14,6 +14,8 @@ TeamApp::Application.routes.draw do
     get "sign_out", :to => "devise/sessions#destroy"
   end
 
+  match '/:slugname' => 'blogs#index'
+
   resources :users
 
 
@@ -24,7 +26,6 @@ TeamApp::Application.routes.draw do
       get :add_vote
   end
   
-
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
@@ -15,6 +16,6 @@ class User < ActiveRecord::Base
                     :path => "sitter_photos/:style/:id",
                     :bucket => AppConfig.s3_bucket,
                     :default_url => 'missing_:style.png'
-
+  has_many :blogs
   # attr_accessible :title, :body
 end
