@@ -10,6 +10,10 @@ TeamApp::Application.routes.draw do
     get "sign_up", :to => "devise/registrations#new"
   end
 
+  devise_scope :user do
+    get "sign_out", :to => "devise/sessions#destroy"
+  end
+
   resources :users
 
 
